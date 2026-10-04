@@ -1,0 +1,66 @@
+/* Estructuras reutilizables: contenedores, secciones y rejillas. */
+.container {
+  width: min(100% - var(--container-gutter) * 2, var(--container-width));
+  margin-inline: auto;
+}
+
+.container--narrow {
+  width: min(100% - var(--container-gutter) * 2, var(--container-narrow));
+}
+
+.section {
+  padding-block: var(--space-section);
+}
+
+.section--muted {
+  background: var(--color-surface-muted);
+}
+
+.section__header {
+  max-width: 40rem;
+  margin-bottom: var(--space-12);
+}
+
+.section__title {
+  font-size: var(--text-2xl);
+}
+
+.section__lead {
+  margin-top: var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+.eyebrow {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 48rem) {
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.split {
+  display: grid;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (min-width: 56rem) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "negocio-local",
+  "name": "Negocio local / Servicios",
+  "version": "1.0.0",
+  "category": "servicios",
+  "description": "Para plomeros, estéticas, talleres, consultorios y cualquier negocio que atiende clientes en su zona.",
+  "tags": ["servicios", "local", "whatsapp", "horarios", "mapa"],
+  "entry": "index.html",
+  "preview": "preview.png",
+  "sections": ["encabezado", "hero", "servicios", "nosotros", "opiniones", "preguntas", "contacto", "pie"],
+  "fields": [
+    { "id": "businessName", "label": "Nombre del negocio", "type": "text", "required": true, "example": "Taller Arce" },
+    { "id": "tagline", "label": "¿Qué haces y dónde?", "type": "text", "required": true, "example": "Plomería y electricidad en Mérida" },
+    { "id": "description", "label": "Describe tu negocio en una o dos frases", "type": "textarea", "required": true, "example": "Servicio a domicilio el mismo día, presupuesto sin costo y garantía por escrito." },
+    { "id": "whatsapp", "label": "WhatsApp (con lada)", "type": "phone", "required": true, "example": "+52 999 123 4567" },
+    { "id": "phone", "label": "Teléfono", "type": "phone", "required": false, "example": "+52 999 123 4567" },
+    { "id": "email", "label": "Correo", "type": "email", "required": false, "example": "hola@tallerarce.mx" },
+    { "id": "address", "label": "Dirección", "type": "text", "required": true, "example": "Calle 60 #123, Centro, Mérida, Yucatán" },
+    { "id": "services", "label": "Servicios (nombre y descripción corta)", "type": "list", "required": true, "min": 1, "max": 6 },
+    { "id": "hours", "label": "Horario", "type": "hours", "required": true },
+    { "id": "about", "label": "Historia del negocio", "type": "textarea", "required": false },
+    { "id": "testimonials", "label": "Opiniones de clientes", "type": "list", "required": false, "max": 6 },
+    { "id": "faq", "label": "Preguntas frecuentes", "type": "list", "required": false, "max": 8 },
+    { "id": "brandColor", "label": "Color principal", "type": "color", "required": false, "example": "#0b5d4b" },
+    { "id": "logo", "label": "Logo", "type": "image", "required": false },
+    { "id": "photos", "label": "Fotos del negocio", "type": "images", "required": false },
+    { "id": "social", "label": "Redes sociales", "type": "links", "required": false }
+  ]
+}

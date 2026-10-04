@@ -1,0 +1,20 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.testimonial__quote {
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+.testimonial__author {
+  font-weight: 700;
+}
+
+.testimonial__meta {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}

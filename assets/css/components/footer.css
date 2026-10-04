@@ -1,0 +1,29 @@
+.site-footer {
+  padding-block: var(--space-8);
+  background: var(--color-text);
+  color: rgb(255 255 255 / 0.75);
+  font-size: var(--text-sm);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.social-list {
+  display: flex;
+  gap: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.social-list a {
+  color: inherit;
+}
+
+.social-list a:hover {
+  color: #ffffff;
+}

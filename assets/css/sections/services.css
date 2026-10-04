@@ -1,0 +1,18 @@
+.service-card__icon {
+  width: 3rem;
+  height: 3rem;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  fill: var(--color-primary);
+}
+
+.service-card__title {
+  margin-top: var(--space-6);
+  font-size: var(--text-xl);
+}
+
+.service-card__text {
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+}
