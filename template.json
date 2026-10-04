@@ -8,6 +8,9 @@
   "entry": "index.html",
   "preview": "preview.png",
   "sections": ["encabezado", "hero", "servicios", "nosotros", "opiniones", "preguntas", "contacto", "pie"],
+  "imageSlots": [
+    { "id": "nosotros", "label": "Foto del equipo o del local", "ratio": "4:3", "recommended": "1600 × 1200 px", "section": "nosotros" }
+  ],
   "fields": [
     { "id": "businessName", "label": "Nombre del negocio", "type": "text", "required": true, "example": "Taller Arce" },
     { "id": "tagline", "label": "¿Qué haces y dónde?", "type": "text", "required": true, "example": "Plomería y electricidad en Mérida" },

@@ -27,6 +27,25 @@ Cuando cambies uno de estos datos, cámbialo en **todos** sus lugares:
 
 `npm run check` detecta WhatsApp o teléfonos distintos entre sí, archivos que no existen, anclas rotas, imágenes sin `alt` y JSON-LD inválido.
 
+## Espacios de imagen
+
+Cada foto del sitio vive en un espacio declarado en `template.json` → `imageSlots`:
+
+```html
+<figure class="media media--square" data-slot="galeria-1" data-placeholder data-hint="Foto del local · 1:1">
+  <img src="assets/img/placeholder.svg" alt="Descripción de la foto" width="1200" height="1200" loading="lazy">
+</figure>
+```
+
+Para poner una foto real en un espacio:
+
+1. Cambia el `src` del `<img>` por la ruta de la foto. Las fotos que se suben desde Ixbal llegan a `images/` (por ejemplo `images/fachada.jpg`); usa esa ruta tal cual, sin mover ni renombrar el archivo.
+2. Escribe un `alt` que describa la foto real y actualiza `width` y `height` con sus medidas.
+3. Borra `data-placeholder` y `data-hint` del `<figure>`. Así desaparece la etiqueta de relleno.
+4. No cambies la clase `media--…` ni el `data-slot`: CSS recorta la foto a la proporción del espacio.
+
+Si la persona sube varias fotos sin decir dónde van, asígnalas según la `label` de cada espacio en `imageSlots`. `npm run check` dice cuántos espacios siguen con imagen de relleno.
+
 ## Estructura
 
 ```
@@ -40,7 +59,8 @@ assets/css/sections/       Estilos propios de cada sección de la página
 assets/css/utilities.css   Clases de una sola responsabilidad
 assets/js/main.js          Registra los módulos
 assets/js/modules/         Comportamiento (menú, horario, año)
-assets/img/                Logo, íconos e imágenes
+assets/img/                Logo, íconos e imágenes de relleno
+images/                    Fotos que sube la persona desde Ixbal (se crea al subir la primera)
 template.json              Metadatos para la galería de plantillas de Ixbal
 scripts/check.mjs          Validador sin dependencias
 ```
@@ -50,4 +70,5 @@ scripts/check.mjs          Validador sin dependencias
 - **Agregar un servicio:** copia un `<li class="card service-card">` completo en `#servicios`.
 - **Quitar una sección:** borra el `<section>` completo y su enlace en `.site-nav__list`.
 - **Nueva sección:** crea el `<section class="section" id="…">`, su archivo en `assets/css/sections/`, impórtalo en `main.css` y agrega el enlace al menú.
-- **Cambiar fotos:** guarda la imagen en `assets/img/` (JPG o WebP, máx. 1600 px de ancho) y actualiza `src`, `alt`, `width` y `height`.
+- **Cambiar fotos:** sigue los pasos de "Espacios de imagen".
+- **Nuevo espacio de imagen:** agrega el `<figure class="media" data-slot="…">` y su entrada en `imageSlots` de `template.json`.

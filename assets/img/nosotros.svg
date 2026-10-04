@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
-  <!-- Imagen de relleno: reemplázala por una foto real del negocio (assets/img/nosotros.jpg) -->
+  <!-- Imagen de relleno del espacio "nosotros"; ver "Espacios de imagen" en AGENTS.md -->
   <rect width="640" height="480" fill="#e3f1ec"/>
   <circle cx="520" cy="90" r="140" fill="#e8a33d" opacity=".25"/>
   <rect x="140" y="220" width="360" height="200" rx="16" fill="#0b5d4b"/>

@@ -11,6 +11,7 @@
 
 @import url("components/button.css") layer(components);
 @import url("components/card.css") layer(components);
+@import url("components/media.css") layer(components);
 @import url("components/header.css") layer(components);
 @import url("components/footer.css") layer(components);
 @import url("components/whatsapp-float.css") layer(components);

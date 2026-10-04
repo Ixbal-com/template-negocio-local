@@ -6,6 +6,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const errors = [];
+const slotsInHtml = [];
+let pendingSlots = 0;
 
 const htmlFiles = (await readdir(root)).filter((name) => name.endsWith(".html"));
 const cssFiles = await listFiles(join(root, "assets/css"), ".css");
@@ -16,6 +18,7 @@ for (const file of htmlFiles) {
   checkHtmlBasics(file, html);
   checkContactConsistency(file, html);
   checkJsonLd(file, html);
+  checkImageSlots(file, html);
 }
 
 for (const file of cssFiles) {
@@ -25,15 +28,23 @@ for (const file of cssFiles) {
 }
 
 const manifest = JSON.parse(await readFile(join(root, "template.json"), "utf8"));
-for (const key of ["id", "name", "entry", "fields"]) {
+for (const key of ["id", "name", "entry", "fields", "imageSlots"]) {
   if (!manifest[key]) errors.push(`template.json: falta el campo "${key}".`);
+}
+const manifestSlots = (manifest.imageSlots ?? []).map((slot) => slot.id);
+for (const id of slotsInHtml) {
+  if (!manifestSlots.includes(id)) errors.push(`template.json: falta el espacio de imagen "${id}" en imageSlots.`);
+}
+for (const id of manifestSlots) {
+  if (!slotsInHtml.includes(id)) errors.push(`template.json: el espacio de imagen "${id}" no existe en el HTML.`);
 }
 
 if (errors.length) {
   console.error(`✗ ${errors.length} problema(s):\n${errors.map((error) => `  - ${error}`).join("\n")}`);
   process.exit(1);
 }
-console.log(`✓ Sitio válido (${htmlFiles.length} HTML, ${cssFiles.length} CSS).`);
+const pending = pendingSlots ? ` · ${pendingSlots} espacio(s) de imagen por llenar` : "";
+console.log(`✓ Sitio válido (${htmlFiles.length} HTML, ${cssFiles.length} CSS)${pending}.`);
 
 async function checkLocalReferences(file, text, pattern) {
   const base = dirname(join(root, file));
@@ -80,6 +91,17 @@ function checkJsonLd(file, html) {
     } catch (error) {
       errors.push(`${file}: JSON-LD inválido (${error.message}).`);
     }
+  }
+}
+
+// Cada <figure data-slot> es un espacio de imagen declarado en template.json → imageSlots.
+// data-placeholder indica que todavía muestra la imagen de relleno.
+function checkImageSlots(file, html) {
+  for (const [tag] of html.matchAll(/<figure\b[^>]*\sdata-slot="[^"]*"[^>]*>/g)) {
+    const id = tag.match(/data-slot="([^"]*)"/)[1];
+    if (slotsInHtml.includes(id)) errors.push(`${file}: el espacio de imagen "${id}" está repetido.`);
+    slotsInHtml.push(id);
+    if (/\sdata-placeholder(?=[\s>=])/.test(tag)) pendingSlots += 1;
   }
 }
 

@@ -17,7 +17,7 @@ También puedes abrir `index.html` con cualquier servidor estático. No requiere
 
 1. **Identidad:** colores y tipografía en `assets/css/tokens.css`.
 2. **Contenido:** textos en `index.html`, organizado por secciones.
-3. **Imágenes:** reemplaza los archivos de `assets/img/`.
+3. **Imágenes:** cada foto tiene un espacio listado en `imageSlots` de `template.json`; mientras no tenga foto real, muestra una etiqueta con lo que va ahí. Ver [AGENTS.md](AGENTS.md#espacios-de-imagen).
 
 Las reglas de arquitectura y la lista de datos que se repiten están en [AGENTS.md](AGENTS.md).
 
