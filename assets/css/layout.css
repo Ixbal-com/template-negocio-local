@@ -47,9 +47,21 @@
   list-style: none;
 }
 
+@media (min-width: 40rem) {
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (min-width: 48rem) {
   .grid--3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .grid--4 {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

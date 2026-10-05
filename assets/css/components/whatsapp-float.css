@@ -9,7 +9,7 @@
   height: 3.5rem;
   border-radius: var(--radius-full);
   background: var(--color-whatsapp);
-  color: #ffffff;
+  color: var(--color-on-primary);
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-fast);
 }

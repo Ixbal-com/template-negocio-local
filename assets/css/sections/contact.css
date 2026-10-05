@@ -5,8 +5,18 @@
 
 @media (min-width: 56rem) {
   .contact {
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: start;
   }
+
+  /* El mapa ocupa todo el ancho debajo de los datos y el formulario */
+  .contact__map {
+    grid-column: 1 / -1;
+  }
+}
+
+.contact-form__title {
+  font-size: var(--text-xl);
 }
 
 .contact-list {
@@ -64,7 +74,7 @@
 .contact__map iframe {
   width: 100%;
   height: 100%;
-  min-height: 24rem;
+  min-height: 22rem;
   border: 0;
   border-radius: var(--radius-lg);
   background: var(--color-surface-muted);

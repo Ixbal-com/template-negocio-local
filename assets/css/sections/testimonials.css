@@ -5,6 +5,11 @@
   gap: var(--space-6);
 }
 
+.testimonial__stars {
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+}
+
 .testimonial__quote {
   font-size: var(--text-lg);
   font-weight: 500;

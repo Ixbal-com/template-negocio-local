@@ -1,0 +1,35 @@
+/* Banda de urgencias 24 horas. */
+.urgent {
+  padding-block: var(--space-12);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.urgent__inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 48rem) {
+  .urgent__inner {
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-8);
+  }
+}
+
+.urgent__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  fill: currentColor;
+}
+
+.urgent__title {
+  font-size: var(--text-2xl);
+  font-weight: 800;
+}
+
+.urgent__text {
+  margin-top: var(--space-2);
+  font-size: var(--text-lg);
+}

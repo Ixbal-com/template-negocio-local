@@ -1,30 +1,116 @@
 {
   "id": "negocio-local",
-  "name": "Negocio local / Servicios",
-  "version": "1.0.0",
+  "name": "Negocio local / Servicios del hogar",
+  "version": "1.1.0",
   "category": "servicios",
   "style": "Profesional cercano: verde bosque y ámbar; sans moderna (Plus Jakarta Sans).",
-  "description": "Para plomeros, estéticas, talleres, consultorios y cualquier negocio que atiende clientes en su zona.",
+  "description": "Para plomeros, electricistas, impermeabilizadores, talleres y cualquier negocio que atiende a domicilio en su zona: servicios con precio de referencia, urgencias, zonas de servicio y cotización por WhatsApp.",
   "tags": [
     "servicios",
+    "hogar",
     "local",
     "whatsapp",
+    "urgencias",
+    "zonas",
     "horarios",
     "mapa"
   ],
   "entry": "index.html",
   "preview": "preview.png",
   "sections": [
+    "avisos",
     "encabezado",
     "hero",
+    "garantias",
     "servicios",
+    "urgencias",
+    "como-trabajamos",
+    "trabajos",
     "nosotros",
+    "zonas",
     "opiniones",
     "preguntas",
     "contacto",
     "pie"
   ],
   "imageSlots": [
+    {
+      "id": "hero",
+      "label": "Foto principal: tú o tu equipo trabajando",
+      "ratio": "4:5",
+      "recommended": "1200 × 1500 px",
+      "section": "hero"
+    },
+    {
+      "id": "servicio-plomeria",
+      "label": "Servicio 1 (plomería)",
+      "ratio": "4:3",
+      "recommended": "1200 × 900 px",
+      "section": "servicios"
+    },
+    {
+      "id": "servicio-electricidad",
+      "label": "Servicio 2 (electricidad)",
+      "ratio": "4:3",
+      "recommended": "1200 × 900 px",
+      "section": "servicios"
+    },
+    {
+      "id": "servicio-impermeabilizacion",
+      "label": "Servicio 3 (impermeabilización)",
+      "ratio": "4:3",
+      "recommended": "1200 × 900 px",
+      "section": "servicios"
+    },
+    {
+      "id": "servicio-pintura",
+      "label": "Servicio 4 (pintura)",
+      "ratio": "4:3",
+      "recommended": "1200 × 900 px",
+      "section": "servicios"
+    },
+    {
+      "id": "servicio-carpinteria",
+      "label": "Servicio 5 (carpintería y cerrajería)",
+      "ratio": "4:3",
+      "recommended": "1200 × 900 px",
+      "section": "servicios"
+    },
+    {
+      "id": "servicio-mantenimiento",
+      "label": "Servicio 6 (mantenimiento para negocios)",
+      "ratio": "4:3",
+      "recommended": "1200 × 900 px",
+      "section": "servicios"
+    },
+    {
+      "id": "trabajo-calentador",
+      "label": "Trabajo terminado 1",
+      "ratio": "1:1",
+      "recommended": "1200 × 1200 px",
+      "section": "trabajos"
+    },
+    {
+      "id": "trabajo-tablero",
+      "label": "Trabajo terminado 2",
+      "ratio": "1:1",
+      "recommended": "1200 × 1200 px",
+      "section": "trabajos"
+    },
+    {
+      "id": "trabajo-azotea",
+      "label": "Trabajo terminado 3",
+      "ratio": "1:1",
+      "recommended": "1200 × 1200 px",
+      "section": "trabajos"
+    },
+    {
+      "id": "trabajo-bano",
+      "label": "Trabajo terminado 4",
+      "ratio": "1:1",
+      "recommended": "1200 × 1200 px",
+      "section": "trabajos"
+    },
     {
       "id": "nosotros",
       "label": "Foto del equipo o del local",
@@ -46,28 +132,28 @@
       "label": "¿Qué haces y dónde?",
       "type": "text",
       "required": true,
-      "example": "Plomería y electricidad en Mérida"
+      "example": "Reparaciones del hogar en la Ciudad de México"
     },
     {
       "id": "description",
       "label": "Describe tu negocio en una o dos frases",
       "type": "textarea",
       "required": true,
-      "example": "Servicio a domicilio el mismo día, presupuesto sin costo y garantía por escrito."
+      "example": "Plomería, electricidad e impermeabilización a domicilio el mismo día, con presupuesto sin costo y garantía por escrito."
     },
     {
       "id": "whatsapp",
       "label": "WhatsApp (con lada)",
       "type": "phone",
       "required": true,
-      "example": "+52 999 123 4567"
+      "example": "+52 55 1234 5678"
     },
     {
       "id": "phone",
       "label": "Teléfono",
       "type": "phone",
       "required": false,
-      "example": "+52 999 123 4567"
+      "example": "+52 55 1234 5678"
     },
     {
       "id": "email",
@@ -81,21 +167,35 @@
       "label": "Dirección",
       "type": "text",
       "required": true,
-      "example": "Calle 60 #123, Centro, Mérida, Yucatán"
+      "example": "Av. Universidad 1450, Col. Santa Cruz Atoyac, Benito Juárez, CDMX"
     },
     {
       "id": "services",
-      "label": "Servicios (nombre y descripción corta)",
+      "label": "Servicios (nombre, trabajos típicos y precio desde)",
       "type": "list",
       "required": true,
       "min": 1,
-      "max": 6
+      "max": 9
     },
     {
       "id": "hours",
       "label": "Horario",
       "type": "hours",
       "required": true
+    },
+    {
+      "id": "areas",
+      "label": "Zonas donde das servicio (alcaldías o colonias)",
+      "type": "textarea",
+      "required": false,
+      "example": "Benito Juárez, Coyoacán, Cuauhtémoc"
+    },
+    {
+      "id": "emergencies",
+      "label": "¿Atiendes urgencias fuera de horario?",
+      "type": "text",
+      "required": false,
+      "example": "Sí, 24 horas para fugas y cortos"
     },
     {
       "id": "about",

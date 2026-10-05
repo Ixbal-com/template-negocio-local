@@ -1,5 +1,5 @@
 .hero {
-  padding-block: var(--space-section);
+  padding-block: var(--space-16) var(--space-section);
   background:
     radial-gradient(circle at 85% 20%, rgb(232 163 61 / 0.25), transparent 40%),
     var(--color-primary);
@@ -14,7 +14,7 @@
 
 @media (min-width: 56rem) {
   .hero__inner {
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.25fr 1fr;
   }
 }
 
@@ -31,7 +31,7 @@
   max-width: 36rem;
   margin-top: var(--space-6);
   font-size: var(--text-lg);
-  color: rgb(255 255 255 / 0.85);
+  color: var(--color-on-primary-muted);
 }
 
 .hero__actions {
@@ -43,41 +43,42 @@
 
 .hero .button--primary {
   background: var(--color-accent);
-  color: var(--color-text);
+  color: var(--color-on-accent);
 }
 
 .hero .button--primary:hover {
-  background: #f0b458;
+  background: var(--color-accent-hover);
 }
 
-.hero-card {
-  padding: var(--space-8);
-  border: 1px solid rgb(255 255 255 / 0.18);
-  border-radius: var(--radius-lg);
-  background: rgb(255 255 255 / 0.08);
-}
-
-.hero-card__list {
-  display: grid;
-  gap: var(--space-6);
-  padding: 0;
-  list-style: none;
-}
-
-.hero-card__item {
+/* Cifras rápidas debajo de los botones */
+.hero__facts {
   display: flex;
-  align-items: baseline;
-  gap: var(--space-3);
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-8);
+  margin-top: var(--space-12);
+  padding: var(--space-6) 0 0;
+  border-top: 1px solid rgb(255 255 255 / 0.18);
+  list-style: none;
+  color: var(--color-on-primary-muted);
 }
 
-.hero-card__value {
-  min-width: 5rem;
+.hero__facts strong {
+  display: block;
   font-size: var(--text-2xl);
   font-weight: 800;
+  color: var(--color-on-primary);
 }
 
-.hero-card__label {
-  color: rgb(255 255 255 / 0.8);
+/* Foto con el aviso de "Abierto ahora" encima */
+.hero__visual {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  justify-self: center;
+}
+
+.hero__visual .media {
+  box-shadow: var(--shadow-lg);
 }
 
 /* Lo muestra main.js según el horario de la sección de contacto */
@@ -103,4 +104,15 @@
 
 .status-badge.is-open::before {
   background: var(--color-whatsapp);
+}
+
+/* Sobre la foto el aviso necesita fondo propio para leerse (va después de .status-badge) */
+.hero__status {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-md);
 }

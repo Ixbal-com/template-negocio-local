@@ -18,12 +18,18 @@ Cuando cambies uno de estos datos, cámbialo en **todos** sus lugares:
 
 | Dato | Dónde aparece |
 |---|---|
-| Nombre del negocio | `<title>`, `og:title`, `.brand__name`, `aria-label` del logo, JSON-LD, pie de página, `alt` de imágenes |
-| WhatsApp | Todos los enlaces con `data-contact="whatsapp"` (formato `https://wa.me/52XXXXXXXXXX`) |
-| Teléfono | Enlaces con `data-contact="phone"` (formato `tel:+52XXXXXXXXXX`) y `telephone` del JSON-LD |
-| Dirección | Sección de contacto, `src` del mapa y `address` del JSON-LD |
+| Nombre del negocio | `<title>`, `og:title`, `.brand__name`, `aria-label` del logo, JSON-LD, `.site-footer__name`, aviso de copyright, `title` del mapa, `alt` de imágenes y `og-image.svg` |
+| Ciudad o zona | `<title>`, `og:title`, `meta description`, título del hero, texto de Nosotros, pie de página, `og-image.svg` y `address` del JSON-LD |
+| WhatsApp | Todos los enlaces con `data-contact="whatsapp"` (formato `https://wa.me/52XXXXXXXXXX`). El formulario toma el número del primero |
+| Teléfono | Enlaces con `data-contact="phone"` (barra superior, hero, banda de urgencias, contacto y pie; formato `tel:+52XXXXXXXXXX`) y `telephone` del JSON-LD |
+| Dirección | `#contacto`, `src` del mapa, pie de página y `address` del JSON-LD |
 | Horario | Tabla `[data-hours]` (atributos `data-days`, `data-open`, `data-close`) y `openingHoursSpecification` del JSON-LD |
+| Servicios | Tarjetas de `#servicios`, `<option>` del campo `servicio` del formulario, enlaces de servicios del pie y `description` del JSON-LD |
+| Zonas de servicio | Lista de `#zonas`, `areaServed` del JSON-LD y la primera pregunta frecuente |
+| Urgencias | Barra `.topbar`, banda `.urgent` y la pregunta sobre urgencias. Si el negocio no atiende urgencias, borra la barra y la banda completas |
 | Color principal | `--color-primary` en `tokens.css`, `theme-color`, `logo.svg`, `favicon.svg`, `og-image.svg` |
+
+Los precios "Desde" de cada servicio y los datos del hero (`.hero__facts`) son de ejemplo: cámbialos por los del negocio o borra el `<p class="service-card__price">` y el `<li>` que no apliquen.
 
 `npm run check` detecta WhatsApp o teléfonos distintos entre sí, archivos que no existen, anclas rotas, imágenes sin `alt` y JSON-LD inválido.
 
@@ -58,16 +64,18 @@ assets/css/components/     Piezas reutilizables (botón, tarjeta, encabezado…)
 assets/css/sections/       Estilos propios de cada sección de la página
 assets/css/utilities.css   Clases de una sola responsabilidad
 assets/js/main.js          Registra los módulos
-assets/js/modules/         Comportamiento (menú, horario, año)
+assets/js/modules/         Comportamiento (menú, horario, año, formulario de cotización)
 assets/img/                Logo, íconos e imágenes de relleno
-images/                    Fotos que sube la persona desde Ixbal (se crea al subir la primera)
+images/                    Fotos del sitio; aquí llegan también las que sube la persona desde Ixbal
 template.json              Metadatos para la galería de plantillas de Ixbal
 scripts/check.mjs          Validador sin dependencias
 ```
 
 ## Tareas comunes
 
-- **Agregar un servicio:** copia un `<li class="card service-card">` completo en `#servicios`.
+- **Agregar un servicio:** copia un `<li class="card service-card">` completo en `#servicios`, cambia su `data-slot` por uno nuevo y agrégalo en `imageSlots` de `template.json`. Agrega también su `<option>` en el formulario y su enlace en el pie.
+- **Quitar un servicio:** borra su `<li>`, su entrada en `imageSlots`, su `<option>` y su enlace del pie.
+- **Formulario de cotización:** el mensaje de WhatsApp sale de `data-message` en el `<form>`; cada `{campo}` se reemplaza por el valor del campo con ese `name`. Si agregas un campo, inclúyelo en `data-message`.
 - **Quitar una sección:** borra el `<section>` completo y su enlace en `.site-nav__list`.
 - **Nueva sección:** crea el `<section class="section" id="…">`, su archivo en `assets/css/sections/`, impórtalo en `main.css` y agrega el enlace al menú.
 - **Cambiar fotos:** sigue los pasos de "Espacios de imagen".

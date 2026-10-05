@@ -1,0 +1,63 @@
+/* "Cómo trabajamos": pasos numerados con CSS (counter), en fila en pantallas anchas. */
+.steps {
+  display: grid;
+  gap: var(--space-8);
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+@media (min-width: 48rem) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.steps__item {
+  position: relative;
+  padding-top: var(--space-16);
+  counter-increment: step;
+}
+
+.steps__item::before {
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--text-lg);
+  font-weight: 800;
+}
+
+/* Línea que une los pasos */
+@media (min-width: 64rem) {
+  .steps__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    left: 3.75rem;
+    right: var(--space-4);
+    border-top: 2px dashed var(--color-border);
+  }
+}
+
+.steps__title {
+  font-size: var(--text-lg);
+}
+
+.steps__text {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+}

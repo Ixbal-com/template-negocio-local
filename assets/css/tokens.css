@@ -8,7 +8,11 @@
   --color-primary-hover: #084638;
   --color-primary-soft: #e3f1ec;
   --color-accent: #e8a33d;
+  --color-accent-hover: #f0b458;
+  --color-accent-soft: #fbecd3;
   --color-on-primary: #ffffff;
+  --color-on-primary-muted: rgb(255 255 255 / 0.78);
+  --color-on-accent: #1b1f1d;
 
   /* Neutros */
   --color-text: #1b1f1d;
@@ -57,6 +61,7 @@
   --radius-full: 999px;
   --shadow-sm: 0 1px 2px rgb(16 24 20 / 0.06);
   --shadow-md: 0 12px 32px -12px rgb(16 24 20 / 0.18);
+  --shadow-lg: 0 24px 48px -16px rgb(16 24 20 / 0.32);
 
   /* Layout */
   --container-width: 72rem;

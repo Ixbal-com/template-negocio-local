@@ -3,7 +3,9 @@
 import { initNavigation } from "./modules/navigation.js";
 import { initOpeningHours } from "./modules/opening-hours.js";
 import { initCurrentYear } from "./modules/current-year.js";
+import { initWhatsappForm } from "./modules/whatsapp-form.js";
 
 initNavigation();
 initOpeningHours();
 initCurrentYear();
+initWhatsappForm();

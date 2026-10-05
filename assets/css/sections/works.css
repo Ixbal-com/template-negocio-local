@@ -1,0 +1,10 @@
+/* Trabajos recientes: foto cuadrada con título y colonia. */
+.work__title {
+  margin-top: var(--space-4);
+  font-weight: 700;
+}
+
+.work__meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}

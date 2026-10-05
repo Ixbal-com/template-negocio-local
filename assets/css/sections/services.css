@@ -1,18 +1,74 @@
+/* Tarjeta de servicio: foto arriba, ícono que se monta sobre ella y lista de trabajos. */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.service-card__media {
+  border-radius: 0;
+}
+
+.service-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0 var(--space-6) var(--space-6);
+}
+
 .service-card__icon {
-  width: 3rem;
-  height: 3rem;
+  position: relative;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-top: calc(var(--space-6) * -1);
   padding: var(--space-3);
+  border: 3px solid var(--color-surface);
   border-radius: var(--radius-md);
-  background: var(--color-primary-soft);
-  fill: var(--color-primary);
+  background: var(--color-primary);
+  fill: var(--color-on-primary);
 }
 
 .service-card__title {
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
   font-size: var(--text-xl);
 }
 
 .service-card__text {
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
   color: var(--color-text-muted);
+}
+
+.service-card__jobs {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+.service-card__jobs li {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.service-card__jobs li::before {
+  content: "•";
+  color: var(--color-accent);
+  font-weight: 800;
+}
+
+/* El precio siempre queda abajo, aunque el texto de la tarjeta sea más corto */
+.service-card__price {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.service-card__price strong {
+  font-size: var(--text-lg);
+  color: var(--color-primary);
 }

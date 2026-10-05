@@ -1,8 +1,8 @@
 # Plantilla Ixbal · Negocio local
 
-Plantilla madre para negocios locales y de servicios: plomeros, estéticas, talleres, consultorios, despachos.
+Plantilla para negocios locales y de servicios del hogar: plomeros, electricistas, impermeabilizadores, talleres y cualquier negocio que atiende a domicilio. El ejemplo es Taller Arce, reparaciones del hogar en la Ciudad de México.
 
-**Incluye:** hero con llamada a WhatsApp, servicios, nosotros, opiniones, preguntas frecuentes, horario con indicador de “Abierto ahora”, mapa, botón flotante de WhatsApp y datos estructurados para Google.
+**Incluye:** barra de urgencias, hero con foto y llamada a WhatsApp, garantías, seis servicios con foto y precio de referencia, banda de urgencias 24 h, cómo trabajamos, trabajos recientes, nosotros, zonas de servicio, opiniones, preguntas frecuentes, formulario de cotización por WhatsApp, horario con indicador de “Abierto ahora”, mapa, botón flotante de WhatsApp y datos estructurados para Google.
 
 ## Uso
 
