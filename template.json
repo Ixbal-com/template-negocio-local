@@ -17,6 +17,7 @@
   ],
   "entry": "index.html",
   "preview": "preview.png",
+  "modules": ["whatsapp-form"],
   "sections": [
     "avisos",
     "encabezado",
