@@ -3,6 +3,7 @@
   "name": "Negocio local / Servicios del hogar",
   "version": "1.1.0",
   "category": "servicios",
+  "uses": ["cotizar", "mostrar-trabajo"],
   "style": "Profesional cercano: verde bosque y ámbar; sans moderna (Plus Jakarta Sans).",
   "description": "Para plomeros, electricistas, impermeabilizadores, talleres y cualquier negocio que atiende a domicilio en su zona: servicios con precio de referencia, urgencias, zonas de servicio y cotización por WhatsApp.",
   "tags": [
